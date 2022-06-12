@@ -95,9 +95,12 @@ namespace Lesson2
         static void BodyMassIndex()
         {
             double index = 0;
-            double weight = byte.Parse(Console.ReadLine());
+            Console.Write("Введите массу тела в кг: ");
+            double weight = double.Parse(Console.ReadLine());
+            Console.Write("Введите рост тела в метрах: ");
             double height = double.Parse(Console.ReadLine());
             index = weight / (height * height);
+            Console.Write($"Ваш индекс массы равен: {index}") ;
             double standart = (18.5 * (height * height) + 25 * (height * height)) / 2;
             weight = index * (height * height);
 
@@ -177,19 +180,38 @@ namespace Lesson2
         }
 
         /// <summary>
-        /// a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).
+        ///7. a) Разработать рекурсивный метод, который выводит на экран числа от a до b(a<b).
         /// </summary>
+        static void NumberRange(int a, int b)
+        {
+            Console.Write("{0,2}", a);
+            if (a < b) NumberRange(a + 1, b);
+        }
 
+        /// <summary>
+        /// 7. б) *Разработать рекурсивный метод, который считает сумму чисел от a до b.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        static int RecursiveSum(int a, int b)
+        {
+            if (a < b)
+                return a + RecursiveSum(a + 1, b); 
+            else return b;
+        }
 
 
         static void Main(string[] args)
         {
-                //MinNumber(6, 5, 4);
-                //SumOfNumbers2(1250);
-                SumOddNumbers();
-                // LoginDetails();
-                //BodyMassIndex();
-               // HarshadNumbers();
+            //MinNumber(6, 5, 4);
+            //SumOfNumbers2(1250);
+            //SumOddNumbers();
+            // LoginDetails();
+            //BodyMassIndex();
+            // HarshadNumbers();
+            //NumberRange(2,4);
+            Console.WriteLine(RecursiveSum(2,5));
         }
     }
 }
